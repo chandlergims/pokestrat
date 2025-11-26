@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/Quicksand-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,15 +19,36 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Hide scrollbar but keep functionality */
+html {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@theme {
+  --animate-dramatic-shake: dramatic-shake 0.4s ease-in-out;
+
+  @keyframes dramatic-shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10% { transform: translateX(-8px) rotate(-2deg); }
+    20% { transform: translateX(8px) rotate(2deg); }
+    30% { transform: translateX(-8px) rotate(-2deg); }
+    40% { transform: translateX(8px) rotate(2deg); }
+    50% { transform: translateX(-8px) rotate(-2deg); }
+    60% { transform: translateX(8px) rotate(2deg); }
+    70% { transform: translateX(-8px) rotate(-2deg); }
+    80% { transform: translateX(8px) rotate(2deg); }
+    90% { transform: translateX(-4px) rotate(-1deg); }
+  }
 }
