@@ -220,12 +220,12 @@ export default function SearchCards() {
         'confirmed'
       );
 
-      // Create transfer instruction for 0.05 SOL
+      // Create transfer instruction for 0.01 SOL
       const transaction = new Transaction().add(
         SystemProgram.transfer({
           fromPubkey: new PublicKey(user.wallet.address),
           toPubkey: new PublicKey(TREASURY_WALLET),
-          lamports: 0.05 * LAMPORTS_PER_SOL, // 0.05 SOL
+          lamports: 0.01 * LAMPORTS_PER_SOL, // 0.01 SOL
         })
       );
 
@@ -537,7 +537,7 @@ export default function SearchCards() {
           onSubmit={handleConfirmRequest}
           title="Join Acquisition Pool"
           subtitle="Once the card is fully acquired, all pool members will be rewarded with a share of the total supply."
-          buttonText="Join Pool for 0.05 SOL"
+          buttonText="Join Pool for 0.01 SOL"
           processingText="Processing..."
           isCreating={isProcessing}
         >
