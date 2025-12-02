@@ -26,7 +26,9 @@
     "next": "16.0.3",
     "phosphor-react": "^1.4.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-devtools-core": "^4.28.5",
+    "ws": "^7.5.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
