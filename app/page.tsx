@@ -7,8 +7,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to vibes page
-    router.push('/vibes');
+    // Redirect to search page
+    router.push('/search');
   }, [router]);
 
   return null;

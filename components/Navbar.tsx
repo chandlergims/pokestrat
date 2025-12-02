@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { usePrivy } from '@privy-io/react-auth';
 import { useWallets } from '@privy-io/react-auth';
 import { useState, useEffect } from 'react';
-import { SignOut, UserCircle, Wallet, CaretDown, CaretUp, Plus, Smiley, SquaresFour } from 'phosphor-react';
+import { SignOut, UserCircle, CaretDown, CaretUp, SquaresFour, ChartBar, Info } from 'phosphor-react';
 import { Connection, PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
 
 const connection = new Connection(
@@ -48,7 +48,7 @@ export default function Navbar() {
   }, [walletAddress]);
   
   return (
-    <nav className="w-full sticky top-0 z-50" style={{ backgroundColor: '#f7f6fb' }}>
+    <nav className="w-full sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between relative">
           <div className="flex items-center">
@@ -62,37 +62,37 @@ export default function Navbar() {
           </div>
           <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6">
             <Link
-              href="/create"
+              href="/search"
               className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/create'
+                pathname === '/search'
                   ? 'bg-gray-200 text-gray-900'
                   : 'text-gray-600 hover:bg-gray-200/50'
               }`}
             >
-              <Plus size={20} weight={pathname === '/create' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Create</span>
+              <SquaresFour size={20} weight={pathname === '/search' ? 'fill' : 'regular'} />
+              <span className="text-sm">Discover</span>
             </Link>
             <Link
-              href="/vibes"
+              href="/strategy"
               className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/vibes'
+                pathname === '/strategy'
                   ? 'bg-gray-200 text-gray-900'
                   : 'text-gray-600 hover:bg-gray-200/50'
               }`}
             >
-              <Smiley size={20} weight={pathname === '/vibes' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Vibes</span>
+              <ChartBar size={20} weight={pathname === '/strategy' ? 'fill' : 'regular'} />
+              <span className="text-sm">Strategy</span>
             </Link>
             <Link
-              href="/feed"
+              href="/how-it-works"
               className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/feed'
+                pathname === '/how-it-works'
                   ? 'bg-gray-200 text-gray-900'
                   : 'text-gray-600 hover:bg-gray-200/50'
               }`}
             >
-              <SquaresFour size={20} weight={pathname === '/feed' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Feed</span>
+              <Info size={20} weight={pathname === '/how-it-works' ? 'fill' : 'regular'} />
+              <span className="text-sm">How It Works</span>
             </Link>
           </div>
           <div className="flex items-center space-x-4 justify-end">
@@ -118,14 +118,6 @@ export default function Navbar() {
                       <img src="/solana-sol-logo-png_seeklogo-423095.png" alt="SOL" className="w-4 h-4" />
                       <p className="text-sm text-gray-900 font-bold">{`${(balance || 0).toFixed(2)} SOL`}</p>
                     </div>
-                    <Link
-                      href="/profile"
-                      onClick={() => setDropdownOpen(false)}
-                      className="px-4 py-3 border-b border-gray-200 flex items-center gap-2 hover:bg-gray-100 transition-colors cursor-pointer"
-                    >
-                      <UserCircle size={16} weight="regular" />
-                      <p className="text-sm text-gray-900 font-bold">Profile</p>
-                    </Link>
                     <button
                       onClick={() => {
                         setDropdownOpen(false);

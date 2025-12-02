@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Rocket, Percent, Star } from 'phosphor-react';
+import { X, Users, Target, Vault, Gift } from 'phosphor-react';
 
 interface HowItWorksModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ export default function HowItWorksModal({ isOpen, onClose }: HowItWorksModalProp
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       {/* Backdrop with blur */}
       <div 
         className="absolute inset-0 backdrop-blur-sm"
@@ -32,36 +32,47 @@ export default function HowItWorksModal({ isOpen, onClose }: HowItWorksModalProp
         <h2 className="text-lg font-bold text-gray-900 mb-4">How It Works</h2>
         
         <div className="space-y-4 text-xs text-gray-700">
-          {/* Create a Coin */}
+          {/* Join Pools */}
           <div>
             <h3 className="text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2">
-              <Rocket size={18} weight="regular" className="text-gray-900" />
-              Create a Coin
+              <Users size={18} weight="regular" className="text-gray-900" />
+              Join Acquisition Pools
             </h3>
             <p>
-              Tokenize your vibe-coded project or app by choosing a name, ticker, image, and description. Add optional social links to build community around your creation.
+              Browse rare Pokemon cards and join acquisition pools for 0.05 SOL per card. Your entry fee funds platform operations and grants you proportional rewards when we achieve supply control.
             </p>
           </div>
 
-          {/* Trading Fees */}
+          {/* Pool Activation */}
           <div>
             <h3 className="text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2">
-              <Percent size={18} weight="regular" className="text-gray-900" />
-              Trading Fees
+              <Target size={18} weight="regular" className="text-gray-900" />
+              Strategic Acquisition
             </h3>
             <p>
-              A 2% fee is charged on all buys and sells, both on the initial bonding curve and after migration to Meteora's DAMM v2 pool.
+              Once a pool reaches 50 participants, it becomes an Active Target. We systematically acquire 80-90% of the card's supply using treasury funds, creating market dominance and value appreciation.
             </p>
           </div>
 
-          {/* Creator Benefits */}
+          {/* Treasury & Rewards */}
           <div>
             <h3 className="text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2">
-              <Star size={18} weight="regular" className="text-gray-900" />
-              Creator Benefits
+              <Vault size={18} weight="regular" className="text-gray-900" />
+              Treasury Management
             </h3>
             <p>
-              Earn 1% of all trading volume post-migration (50% of the 2% fee). An LP position NFT is transferred to the creator post-migration, which can be used to claim fees on meteora.ag.
+              Revenue from pool fees and Pump.fun creator fees funds acquisitions. 70% active deployment, 30% tax reserve. All transactions are transparent with real-time treasury visibility.
+            </p>
+          </div>
+
+          {/* Participant Rewards */}
+          <div>
+            <h3 className="text-sm font-bold text-gray-900 mb-1.5 flex items-center gap-2">
+              <Gift size={18} weight="regular" className="text-gray-900" />
+              Earn Rewards
+            </h3>
+            <p>
+              Pool participants receive proportional rewards through card distribution or profit sharing. Benefit directly from successful acquisitions and market appreciation.
             </p>
           </div>
         </div>

@@ -3,12 +3,11 @@
 import "./globals.css";
 import { PrivyProvider } from '@privy-io/react-auth';
 import Footer from '@/components/Footer';
+import HowItWorksModal from '@/components/HowItWorksModal';
 import { toSolanaWalletConnectors } from '@privy-io/react-auth/solana';
 import { WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
 import { useMemo, useState, useEffect } from 'react';
 import { Geist, Geist_Mono } from "next/font/google";
-import LoadingSpinner from '@/components/LoadingSpinner';
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,35 +18,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-function LoadingWrapper({ children }: { children: React.ReactNode }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Only show loader on initial page load/refresh
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array - only runs once on mount
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-
-  return <>{children}</>;
-}
-
 function WalletAdapter({ children }: { children: React.ReactNode }) {
   const wallets = useMemo(() => [], []);
   const endpoint = useMemo(() => process.env.NEXT_PUBLIC_SOLANA_RPC || '', []);
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
+  
+  useEffect(() => {
+    // Auto-show modal on every page load
+    setShowHowItWorks(true);
+  }, []);
   
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
-        <LoadingWrapper>
-          {children}
-        </LoadingWrapper>
+        <HowItWorksModal 
+          isOpen={showHowItWorks} 
+          onClose={() => setShowHowItWorks(false)} 
+        />
+        {children}
       </WalletProvider>
     </ConnectionProvider>
   );
@@ -61,11 +49,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Vibeify</title>
-        <meta name="description" content="Launch and trade memecoins on Solana" />
+        <title>PokeStrategy - Strategic Pokemon Card Acquisition</title>
+        <meta name="description" content="PokeStrategy - Join acquisition pools to strategically acquire Pokemon card supply through coordinated market dominance" />
         <link rel="icon" href="/Vibeify-Logo-jpeg-file (1).jpg" />
-        <meta property="og:title" content="Vibeify" />
-        <meta property="og:description" content="Launch and trade memecoins on Solana" />
+        <meta property="og:title" content="PokeStrategy - Strategic Pokemon Card Acquisition" />
+        <meta property="og:description" content="Join acquisition pools to strategically acquire Pokemon card supply through coordinated market dominance" />
         <meta property="og:image" content="/Vibeify-Logo-jpeg-file (1).jpg" />
       </head>
       <body

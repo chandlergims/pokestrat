@@ -207,12 +207,6 @@ export default function Profile() {
                 ) : coins.length === 0 ? (
                   <div className="text-center py-20">
                     <p className="text-gray-500 mb-4">No launches yet</p>
-                    <Link 
-                      href="/create"
-                      className="inline-block px-6 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors text-sm"
-                    >
-                      Launch Your First Coin
-                    </Link>
                   </div>
                 ) : (
                   <>
