@@ -51,10 +51,10 @@ export default function RootLayout({
       <head>
         <title>PokeStrategy - Strategic Pokemon Card Acquisition</title>
         <meta name="description" content="PokeStrategy - Join acquisition pools to strategically acquire Pokemon card supply through coordinated market dominance" />
-        <link rel="icon" href="/Vibeify-Logo-jpeg-file (1).jpg" />
+        <link rel="icon" href="/Arena (18).png" />
         <meta property="og:title" content="PokeStrategy - Strategic Pokemon Card Acquisition" />
         <meta property="og:description" content="Join acquisition pools to strategically acquire Pokemon card supply through coordinated market dominance" />
-        <meta property="og:image" content="/Vibeify-Logo-jpeg-file (1).jpg" />
+        <meta property="og:image" content="/Arena (18).png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

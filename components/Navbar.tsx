@@ -54,8 +54,8 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img 
-                src="/Vibeify-Logo-png-file (1).png" 
-                alt="Vibeify" 
+                src="/Arena (18).png" 
+                alt="PokeStrategy" 
                 className="h-16 sm:h-18 md:h-20 w-auto select-none"
               />
             </Link>
